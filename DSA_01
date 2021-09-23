@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main(){
+    int row,column,search,count=0;
+    printf("Enter the number of Row and column \n");
+    scanf("%d%d",&row,&column);
+    int arr[row][column];
+    printf("Enter %d Elements \n",row*column);
+    for(int i=0; i<row; i++){
+        for(int j=0; j<column; j++){
+            scanf("%d",&arr[i][j]);
+        }
+    }
+    printf("Enter an element to search \n");
+    scanf("%d",&search);
+    for(int i=0; i<row; i++){
+        for(int j=0; j<column; j++){
+            if(arr[i][j] == search){
+                printf("%d %d",i,j);
+                count++;
+            }
+        }
+    }
+    if(count==0)
+    printf("The element you searched is not found \n");
+    return 0;
+}
