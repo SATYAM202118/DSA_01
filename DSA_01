@@ -15,7 +15,7 @@ int main(){
     for(int i=0; i<row; i++){
         for(int j=0; j<column; j++){
             if(arr[i][j] == search){
-                printf("%d %d",i,j);
+                printf("Element is present at %d %d",i,j);
                 count++;
             }
         }
