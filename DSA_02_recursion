@@ -1,0 +1,30 @@
+#include<stdio.h>
+int Recursive_Binary(int Arr[],int first,int last,int search){
+    if(first>last){
+        return -1;
+    }
+    int mid = (first + last)/2;
+    if(search = Arr[mid]){
+        return mid;
+    }
+    else if(search < Arr[mid]){
+        return Recursive_Binary(Arr, first, mid-1, search);
+    }
+    else{
+        return Recursive_Binary(Arr, mid+1, last, search);
+    }
+}
+int main(void){
+    int Arr[] = {2,4,5,7,9,11,14,15};
+    int search = 7;
+    int n = sizeof(Arr)/sizeof(Arr[0]);
+    int first =0 ,last = n-1;
+    int index = Recursive_Binary(Arr, first, last, search);
+    if( index != -1){
+        printf("The searched element is found at index %d \n",index);
+    }
+    else{
+         printf("The searched element is not found in the array");
+    }
+    return 0;
+}
