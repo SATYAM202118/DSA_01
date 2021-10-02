@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include<iostream>
+using namespace std;
 
 void add(int m[3][3], int n[3][3], int sum[3][3]){
   for(int i=0;i<3;i++)
@@ -31,58 +31,59 @@ void transpose(int matrix[3][3], int trans[3][3]){
 
 void display(int matrix[3][3]){
   for(int i=0; i<3; i++){
-    for(int j=0; j<3; j++)
-      printf("%d\t",matrix[i][j]);
-    printf("\n");
+    for(int j=0; j<3; j++){
+      cout<<matrix[i][j]<<" ";
+    }
+    cout<<endl;
   }
 }
 
 int main(){
-  
-  int a[][3] = { {1,2,3}, {4,5,6}, {7,8,9} };
-  int b[][3] = { {11,12,13}, {14,15,16}, {17,18,19} };  
+
+  int a[][3] = { {11,12,13}, {14,15,16}, {17,18,19} };
+  int b[][3] =  { {1,2,3}, {4,5,6}, {7,8,9} };
   int c[3][3];
-  printf("First Matrix:\n");
+  cout<<"First Matrix: "<<endl;
   display(a);
-  printf("Second Matrix:\n");
+  cout<<"Second Matrix: "<<endl;
   display(b);
 
   int choice;
   do{
-    printf("\nChoose the matrix operation,\n");
-    printf("1 Addition\n");
-    printf("2 Subtraction\n");
-    printf("3 Multiplication\n");
-    printf("4 Transpose\n");
-    printf("Enter your choice: ");
-    scanf("%d", &choice);
+    cout<<"\nChoose the matrix operation\n";
+    cout<<"1 Addition \n";
+    cout<<"2 Subtraction \n";
+    cout<<"3 Multiplication \n";
+    cout<<"4 Transpose \n";
+    cout<<"Please enter your choice:";
+    cin>>choice;
 
     switch (choice) {
       case 1:
         add(a, b, c);
-        printf("Sum of matrix: \n");
+        cout<<"Addition of matrix: \n";
         display(c);
         break;
       case 2:
         subtract(a, b, c);
-        printf("Subtraction of matrix: \n");
+        cout<<"Subtraction of matrix: \n";
         display(c);
         break;
       case 3:
         mul(a, b, c);
-        printf("Multiplication of matrix: \n");
+        cout<<"Multiplication of matrix: \n";
         display(c);
         break;
       case 4:
-        printf("Transpose of the first matrix: \n");
+        cout<<"Transpose of the first matrix: \n";
         transpose(a, c);
         display(c);
-        printf("Transpose of the second matrix: \n");
+        cout<<"Transpose of the second matrix: \n";
         transpose(b, c);
         display(c);
         break;
       default:
-        printf("Please enter a vaild input\n");
+      cout<<"Please enter a vaild input\n";
     }
   }
   while(1);
