@@ -1,0 +1,38 @@
+// CALL BY VALUE
+#include <iostream>
+using namespace std;
+void swap(int a, int b){
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+    cout<<"After swapping first number is : " <<a<<"\nAfter swapping second number is : "<<b;
+}
+int main(){
+    int num1,num2;              // SATYAM ARYA (202118)
+    cout <<"Enter two numbers \n";
+    cin >> num1 >> num2;
+    cout<<"Before swap first number is : "<<num1<<"\nBefore swap second number is : "<<num2<<endl;
+    swap(num1,num2);
+    cout<<"\nAfter swap function called first number is : " <<num1<<"\nAfter swap function called second number is : "<<num2;
+    return 0;
+}
+
+// CALL BY REFERENCE
+#include<iostream>
+using namespace std;
+void swap(int *a, int *b){
+   int temp;
+   temp = *b;
+   *b = *a;
+   *a = temp;   
+}
+int main(){
+    int num1,num2;              // SATYAM ARYA (202118)
+    cout <<"Enter two numbers \n";
+    cin >> num1 >> num2;
+    cout<<"Before swap first number is : "<<num1<<"\nBefore swap second number is : "<<num2<<endl;
+    swap(&num1,&num2);
+    cout<<"After swap first number is : "<<num1<<"\nAfter swap second number is : "<<num2;
+    return 0;
+}
