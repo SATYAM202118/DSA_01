@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+struct Node{
+  int data;
+  struct Node *left, *right;
+  Node(int data){
+    this->data = data;
+    left = right = NULL;
+  }
+};
+void Preorder_Traversal(struct Node* node){
+  if (node == NULL)
+    return;
+  cout << node->data << "->";
+  Preorder_Traversal(node->left);
+  Preorder_Traversal(node->right);
+}
+void Postorder_Traversal(struct Node* node){
+  if (node == NULL)
+    return;
+  Postorder_Traversal(node->left);
+  Postorder_Traversal(node->right);
+  cout << node->data << "->";
+}
+void Inorder_Traversal(struct Node* node){
+  if (node == NULL)
+    return;
+  Inorder_Traversal(node->left);
+  cout << node->data << "->";
+  Inorder_Traversal(node->right);
+}
+int main(){
+  struct Node* root = new Node(7);
+  root->left = new Node(22);
+  root->right = new Node(8);
+  root->left->left = new Node(10);
+  root->left->right = new Node(1);
+  
+  cout << "Inorder traversal: ";
+  Inorder_Traversal(root);
+  cout << "\nPreorder traversal: ";
+  Preorder_Traversal(root);
+  cout << "\nPostorder traversal: ";
+  Postorder_Traversal(root);
+return 0;
+}
